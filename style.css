@@ -32,7 +32,8 @@ h1 {
   font-size: 100px;
   position: relative;
   left: 19vw;
-
+margin-top: 0px;
+padding-top: 61.8px;
 }
 
 main {

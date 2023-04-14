@@ -1,8 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  /* font-family: 'Nunito Sans', sans-serif;
+  font-weight: lighter; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+html{
+  background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/61e79073-50cf-4f7b-9a23-73290e6f7dca/984c3b2e-6df2-4756-8653-a8558f12785c/IT-it-20230410-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+ 
+}
+
+body{
+background: rgb(4,16,36);
+background: linear-gradient(180deg, rgba(4,16,36,0.47905196910239867) 0%, rgba(4,16,36,0.7451070149739583) 31%, rgba(4,16,36,0.9866972290412366) 41%); 
+}
+
+/* * {
+  border: solid 1px rebeccapurple;
+} */
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #fafafa;
+  font-size: 100px;
+  position: relative;
+  left: 19vw;
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.li-serie {
+  margin: 10px 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200px;
+  width: 61.8vw;
+  color: #fafafa;
+}
+
+.left-li {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 200px;
+  max-width: 200px;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.li-image {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.center-li{
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-li{
+  display: grid;
+ grid-template-columns: 50% 50%;
+ grid-template-rows: 50% 50%;
+ 
+ text-align: center;
+}
+
+button{
+height: 61.8px;
+width: 61.8px;
+}
+
+.buttons{
+  display: flex;
+  
+}
+
+#order-title-btn, #order-upvotes-btn, #order-downvotes-btn, #order-avg-btn{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  margin: 6.18px;
+  border-radius: 5px;
+  height: 50px;
+  width: 99px;
+  color:#fafafa;
+  background-color: rgb(225, 6, 6);
+  border: none;
+}
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
+
+/* fare right div display grid 2 x 2 */

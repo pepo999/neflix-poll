@@ -26,9 +26,9 @@ function displayCollection() {
         const leftLi = document.createElement('div');
         leftLi.classList.add('left-li');
         const centerLi = document.createElement('div');
-        leftLi.classList.add('center-li');
+        centerLi.classList.add('center-li');
         const rightLi = document.createElement('div');
-        leftLi.classList.add('right-li');
+        rightLi.classList.add('right-li');
         newLi.classList.add('li-serie');
         //creation of img tag and giving it class 'li-image- and url:
         const serieImg = document.createElement('img');
@@ -39,30 +39,42 @@ function displayCollection() {
         const serieTitle = document.createElement('h2');
         const titleText = document.createTextNode(serieAtIndexI.title);
         serieTitle.appendChild(titleText);
-        //creation of creator text, seasons text, isCompleted text
-        const serieCreator = document.createTextNode('Creator: ' + serieAtIndexI.creator);
-        const serieSeasons = document.createTextNode('Seasons: ' + serieAtIndexI.seasons);
-        const serieCompleted = document.createTextNode('Is it Finished? ' + serieAtIndexI.isCompleted);
-        //creation of upVote and downVote buttons
+        //creation of creator text, seasons text
+        const serieCreator = document.createElement('span');
+        const serieSeasons = document.createElement('span');
+        const serieCreatorText= document.createTextNode('Creator: ' + serieAtIndexI.creator);
+        const serieSeasonsText = document.createTextNode('Seasons: ' + serieAtIndexI.seasons);
+        serieCreator.appendChild(serieCreatorText);
+        serieSeasons.appendChild(serieSeasonsText);
+        //creation of upVote and downVote buttons and numbers in divs
         const upVoteBtn = document.createElement('button');
         upVoteBtn.classList.add('material-symbols-outlined');
         upVoteBtn.innerHTML = 'thumb_up'
         const downVoteBtn = document.createElement('button');
         downVoteBtn.classList.add('material-symbols-outlined');
-        downVoteBtn.innerHTML = 'thumb_down'
+        downVoteBtn.innerHTML = 'thumb_down';
+        const numUpVotes = document.createTextNode(serieAtIndexI.upVotes);
+        const divUpVotes = document.createElement('div');
+        divUpVotes.classList.add('div-upvotes');
+        divUpVotes.appendChild(numUpVotes);
+        const numDownVotes = document.createTextNode(serieAtIndexI.downVotes);
+        const divDownVotes = document.createElement('div');
+        divUpVotes.classList.add('div-downvotes');
+        divDownVotes.appendChild(numDownVotes);
         //filling the three divs
         leftLi.appendChild(serieImg);
         centerLi.appendChild(serieTitle);
         centerLi.appendChild(serieCreator);
         centerLi.appendChild(serieSeasons);
-        centerLi.appendChild(serieCompleted);
         rightLi.appendChild(upVoteBtn);
         rightLi.appendChild(downVoteBtn);
+        rightLi.appendChild(divUpVotes);
+        rightLi.appendChild(divDownVotes);
         //putting the three divs inside li element
         newLi.appendChild(leftLi);
         newLi.appendChild(centerLi);
         newLi.appendChild(rightLi);
-        //put li inside ul
+        //put li[i] inside ul
         listOfSeries.appendChild(newLi);
     }
 

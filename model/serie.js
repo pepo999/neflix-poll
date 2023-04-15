@@ -17,7 +17,7 @@ if (id) {
         return this.title.localeCompare(serie2.title);
     }
 
-    compareByUpvotes(serie2) {
+    compareByUpVotes(serie2) {
         if (this.upVotes > serie2.upVotes) {
             return -1
         } else if (this.upVotes < serie2.upVotes) {
@@ -27,7 +27,7 @@ if (id) {
         }
     }
 
-    compareByDownvotes(serie2) {
+    compareByDownVotes(serie2) {
         if (this.downVotes > serie2.downVotes) {
             return -1
         } else if (this.downVotes < serie2.downVotes) {
@@ -35,6 +35,29 @@ if (id) {
         } else {
             return 0
         }
+    }
+
+    compareByAvg(serie2) {
+        if ((this.upVotes - this.downVotes) > (serie2.upVotes - serie2.downVotes)) {
+            return -1
+        } else if ((this.upVotes - this.downVotes) < (serie2.upVotes - serie2.downVotes)) {
+            return 1
+        } else {
+            return 0
+        }
+    }
+
+    toDbModel () {  //creo una sorta di costruttore speculare perchè nel mio database veniva creata una nuova proprietà _creationDate
+        const dbModel = {
+            title : this.title,
+            creator : this.creator,
+            seasons : this.seasons,
+            isCompleted : this.isCompleted,
+            upVotes : this.upVotes,
+            downVotes : this.downVotes,
+            id : this.id
+        }
+        return dbModel;
     }
 
 }

@@ -92,7 +92,8 @@ width: 61.8px;
 
 .buttons{
   display: flex;
-  
+  justify-content: space-between;
+  width: 31.2vw;
 }
 
 #order-title-btn, #order-upvotes-btn, #order-downvotes-btn, #order-avg-btn{
@@ -101,7 +102,7 @@ width: 61.8px;
   margin: 6.18px;
   border-radius: 5px;
   height: 50px;
-  width: 99px;
+  width: 10vw;
   color:#fafafa;
   background-color: rgb(225, 6, 6);
   border: none;

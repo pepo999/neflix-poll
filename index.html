@@ -18,10 +18,10 @@
     </header>
     <main>
         <div class="buttons">
-        <button id="order-title-btn">Order by title</button>
-        <button id="order-upvotes-btn">Order by upvotes</button>
-        <button id="order-downvotes-btn">Order by downvotes</button>
-        <button id="order-avg-btn">Order by best average</button>
+        <button id="order-title-btn" onclick="orderByTitle()">Order by title</button>
+        <button id="order-upvotes-btn" onclick="orderByUpVotes()">Order by upvotes</button>
+        <button id="order-downvotes-btn" onclick="orderByDownVotes()">Order by downvotes</button>
+        <button id="order-avg-btn" onclick="orderByAvg()">Order by best average</button>
     </div>
         <ul id="serie-list">
 
@@ -31,9 +31,9 @@
 
     </footer>
 </body>
+<script src="./services/data-service.js"></script>
 <script src="./model/serie.js"></script>
 <script src="./model/collection.js"></script>
-<script src="./services/data-service.js"></script>
 <script src="./app.js"></script>
 
 </html>

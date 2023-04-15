@@ -19,6 +19,7 @@ function fillCollectionFromServer(data) {
 
 function displayCollection() {
     const listOfSeries = document.getElementById('serie-list');
+    listOfSeries.innerHTML = '';
     for (let i = 0; i < collection.series.length; i++) {
         const serieAtIndexI = collection.series[i];
         //creating new li element with class 'li-serie' and 3 sub divs lcr
@@ -46,21 +47,27 @@ function displayCollection() {
         const serieSeasonsText = document.createTextNode('Seasons: ' + serieAtIndexI.seasons);
         serieCreator.appendChild(serieCreatorText);
         serieSeasons.appendChild(serieSeasonsText);
-        //creation of upVote and downVote buttons and numbers in divs
+        //creation of upVote and downVote buttons
         const upVoteBtn = document.createElement('button');
         upVoteBtn.classList.add('material-symbols-outlined');
-        upVoteBtn.innerHTML = 'thumb_up'
-        upVoteBtn.addEventListener('click', (n => {
-            sortByUpVotes(n);
-            displayCollection()
-        }))
+        upVoteBtn.innerHTML = 'thumb_up';
+        upVoteBtn.addEventListener('click', (event) => {
+                serieAtIndexI.upVotes += 1;
+                DataService.putSerie(serieAtIndexI).then(upvotedSerie => {
+                    displayCollection();
+                    console.log(DataService.putSerie(serieAtIndexI))
+                })    
+        });
         const downVoteBtn = document.createElement('button');
         downVoteBtn.classList.add('material-symbols-outlined');
         downVoteBtn.innerHTML = 'thumb_down';
-        downVoteBtn.addEventListener('click', (n => {
-            sortByDownVotes(n);
-            displayCollection()
-        }))
+        downVoteBtn.addEventListener('click', (event) => {
+            serieAtIndexI.downVotes += 1;
+            DataService.putSerie(serieAtIndexI).then(downvotedSerie => {
+                displayCollection();
+            })    
+    });
+        //creation of numbers of upvotes and downvotes
         const numUpVotes = document.createTextNode(serieAtIndexI.upVotes);
         const divUpVotes = document.createElement('div');
         divUpVotes.style.color = 'limegreen';
@@ -87,5 +94,24 @@ function displayCollection() {
         //put li[i] inside ul
         listOfSeries.appendChild(newLi);
     }
+}
 
+function orderByTitle() {
+    collection.sortByTitle();
+    displayCollection();
+}
+
+function orderByUpVotes() {
+    collection.sortByUpVotes();
+    displayCollection();
+}
+
+function orderByDownVotes() {
+    collection.sortByDownVotes();
+    displayCollection();
+}
+
+function orderByAvg() {
+    collection.sortByAvg();
+    displayCollection();
 }

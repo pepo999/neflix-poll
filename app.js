@@ -50,15 +50,25 @@ function displayCollection() {
         const upVoteBtn = document.createElement('button');
         upVoteBtn.classList.add('material-symbols-outlined');
         upVoteBtn.innerHTML = 'thumb_up'
+        upVoteBtn.addEventListener('click', (n => {
+            sortByUpVotes(n);
+            displayCollection()
+        }))
         const downVoteBtn = document.createElement('button');
         downVoteBtn.classList.add('material-symbols-outlined');
         downVoteBtn.innerHTML = 'thumb_down';
+        downVoteBtn.addEventListener('click', (n => {
+            sortByDownVotes(n);
+            displayCollection()
+        }))
         const numUpVotes = document.createTextNode(serieAtIndexI.upVotes);
         const divUpVotes = document.createElement('div');
+        divUpVotes.style.color = 'limegreen';
         divUpVotes.classList.add('div-upvotes');
         divUpVotes.appendChild(numUpVotes);
         const numDownVotes = document.createTextNode(serieAtIndexI.downVotes);
         const divDownVotes = document.createElement('div');
+        divDownVotes.style.color = 'rgb(225, 6, 6)';
         divUpVotes.classList.add('div-downvotes');
         divDownVotes.appendChild(numDownVotes);
         //filling the three divs
@@ -79,5 +89,3 @@ function displayCollection() {
     }
 
 }
-
-console.log(collection)

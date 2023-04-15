@@ -12,8 +12,12 @@ class Collection {
         return this.series.sort((serie1, serie2) => serie1.compareByTitle(serie2))
     }
 
-    sortByCreationDate() {
-        return this.series.sort((serie1, serie2) => serie1.compareByCreationDate(serie2))
+    sortByUpVotes() {
+        return this.series.sort((serie1, serie2) => serie1.upVotes.compareByUpVotes(serie2.upVotes))
+    }
+
+    sortByDownVotes() {
+        return this.series.sort((serie1, serie2) => serie1.compareByDownVotes(serie2))
     }
 
 }

@@ -31,7 +31,7 @@ h1 {
   color: #fafafa;
   font-size: 100px;
   position: relative;
-  left: 19vw;
+  text-align: center;
 margin-top: 0px;
 padding-top: 61.8px;
 }
@@ -51,7 +51,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   height: 200px;
-  width: 61.8vw;
+  width: 40.8vw;
   color: #fafafa;
 }
 

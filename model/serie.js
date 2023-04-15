@@ -27,4 +27,14 @@ if (id) {
         }
     }
 
+    compareByDownvotes(serie2) {
+        if (this.downVotes > serie2.downVotes) {
+            return -1
+        } else if (this.downVotes < serie2.downVotes) {
+            return 1
+        } else {
+            return 0
+        }
+    }
+
 }

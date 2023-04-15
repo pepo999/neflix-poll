@@ -55,7 +55,6 @@ function displayCollection() {
                 serieAtIndexI.upVotes += 1;
                 DataService.putSerie(serieAtIndexI).then(upvotedSerie => {
                     displayCollection();
-                    console.log(DataService.putSerie(serieAtIndexI))
                 })    
         });
         const downVoteBtn = document.createElement('button');
@@ -65,7 +64,7 @@ function displayCollection() {
             serieAtIndexI.downVotes += 1;
             DataService.putSerie(serieAtIndexI).then(downvotedSerie => {
                 displayCollection();
-            })    
+            })     
     });
         //creation of numbers of upvotes and downvotes
         const numUpVotes = document.createTextNode(serieAtIndexI.upVotes);
@@ -73,7 +72,7 @@ function displayCollection() {
         divUpVotes.style.color = 'limegreen';
         divUpVotes.classList.add('div-upvotes');
         divUpVotes.appendChild(numUpVotes);
-        const numDownVotes = document.createTextNode(serieAtIndexI.downVotes);
+        const numDownVotes = document.createTextNode('- ' + serieAtIndexI.downVotes);
         const divDownVotes = document.createElement('div');
         divDownVotes.style.color = 'rgb(225, 6, 6)';
         divUpVotes.classList.add('div-downvotes');
@@ -115,3 +114,5 @@ function orderByAvg() {
     collection.sortByAvg();
     displayCollection();
 }
+
+

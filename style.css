@@ -13,7 +13,8 @@ body {
 
 html{
   background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/61e79073-50cf-4f7b-9a23-73290e6f7dca/984c3b2e-6df2-4756-8653-a8558f12785c/IT-it-20230410-popsignuptwoweeks-perspective_alpha_website_large.jpg);
- 
+  background-repeat: no-repeat;
+  height: 100%;
 }
 
 body{
@@ -75,14 +76,22 @@ main {
   min-width: 300px;
   display: flex;
   flex-direction: column;
+  font-size: 20px;
+}
+
+span{
+margin: 5px 0px;
 }
 
 .right-li{
   display: grid;
  grid-template-columns: 50% 50%;
  grid-template-rows: 50% 50%;
- 
  text-align: center;
+}
+
+img{
+  border-radius: 5px;
 }
 
 button{
@@ -94,6 +103,7 @@ width: 61.8px;
   display: flex;
   justify-content: space-between;
   width: 31.2vw;
+  margin-bottom: 35px;
 }
 
 #order-title-btn, #order-upvotes-btn, #order-downvotes-btn, #order-avg-btn{
@@ -108,7 +118,18 @@ width: 61.8px;
   border: none;
 }
 
+.div-upvotes, .div-downvotes{
+  margin-top: 0px;
+  position: relative;
+  bottom: 20px;
+}
+
 .material-symbols-outlined {
+  margin: 5px;
+opacity: 0.6;
+background-color: rgb(174, 175, 191);
+border: none;
+  border-radius: 5px;
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -116,4 +137,18 @@ width: 61.8px;
     'opsz' 48
 }
 
-/* fare right div display grid 2 x 2 */
+footer{
+  margin-top: 9vh;
+  height: 30vh;
+  background-color: rgb(10, 9, 33);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.netflix-logo-footer{
+  height: 200px;
+  width: 400px;
+}

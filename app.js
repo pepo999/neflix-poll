@@ -22,8 +22,7 @@ function displayCollection() {
     listOfSeries.innerHTML = '';
     for (let i = 0; i < collection.series.length; i++) {
         const serieAtIndexI = collection.series[i];
-        //creating new li element with class 'li-serie' and 3 sub divs lcr
-
+        //creating new li element with class 'li-serie' and number of inde + 3 sub divs lcr
         const newLi = document.createElement('li');
         const num = document.createElement('div');
         num.classList.add('num');
@@ -50,7 +49,7 @@ function displayCollection() {
         const serieCreator = document.createElement('span');
         const serieSeasons = document.createElement('span');
         const serieCreatorText= document.createTextNode('Creator: ' + serieAtIndexI.creator);
-        const serieSeasonsText = document.createTextNode('Seasons: ' + serieAtIndexI.seasons);
+        const serieSeasonsText = document.createTextNode('Seasons: ' + serieAtIndexI.seasons + isCompleted(serieAtIndexI));
         serieCreator.appendChild(serieCreatorText);
         serieSeasons.appendChild(serieSeasonsText);
         //creation of upVote and downVote buttons
@@ -125,3 +124,12 @@ function orderByAvg() {
     displayCollection();
 }
 
+function isCompleted(serie) {
+    let points = ' . . .';
+    let noPoints = '';
+    if(serie.isCompleted === false) {
+        return points;
+    } else {
+        return  noPoints;
+    }
+}

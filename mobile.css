@@ -8,11 +8,11 @@
     }
 
     body {
-        width: 120%;
+        width: 100vw;
     }
 
     h1 {
-        font-size: 17vw;
+        font-size: 15vw;
         padding: 20px 0px 0px 0px;
     }
 

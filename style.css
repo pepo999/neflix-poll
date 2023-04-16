@@ -9,6 +9,7 @@ body {
   font-weight: lighter; */
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
+  box-sizing: border-box;
 }
 
 html{
@@ -18,8 +19,8 @@ html{
 }
 
 body{
-background: rgb(4,16,36);
-background: linear-gradient(180deg, rgba(4,16,36,0.47905196910239867) 0%, rgba(4,16,36,0.7451070149739583) 31%, rgba(4,16,36,0.9866972290412366) 41%); 
+  background: rgb(5,11,54);
+  background: linear-gradient(180deg, rgba(3, 7, 39, 0.62) 0%, rgb(4, 9, 46) 15%);
 }
 
 /* * {

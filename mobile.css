@@ -1,0 +1,128 @@
+@media screen and (max-width: 992px) {
+
+    html {
+        height: fit-content;
+        width: 100vw;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        width: 120%;
+    }
+
+    h1 {
+        font-size: 17vw;
+        padding: 20px 0px 0px 0px;
+    }
+
+    main {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+
+    ol {
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+    }
+
+    .li-serie {
+        margin: 15px 0px;
+        height: 100px;
+        width: 50px;
+    }
+
+    .left-li {
+        width: 100px;
+        max-width: 100px;
+    }
+
+    .li-image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+    }
+
+    .center-li {
+        font-size: medium;
+        min-width: none;
+        width: 30px;
+    }
+
+    span {
+        width: 100%;
+    }
+
+    button {
+        height: 40px;
+        width: 40px;
+    }
+
+    .buttons {
+        width: 90%;
+        /* display: grid;
+            margin-bottom: 0px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%; */
+    }
+
+    #order-title-btn,
+    #order-upvotes-btn,
+    #order-downvotes-btn,
+    #order-avg-btn {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        margin: 6.18px;
+        border-radius: 5px;
+        height: 50px;
+        width: 100px;
+        min-width: 50px;
+        color: #fafafa;
+        background-color: rgb(225, 6, 6);
+        border: none;
+    }
+
+    .right-li {
+        height: 100px;
+        width: 100px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        /* grid-template-rows: ; */
+        text-align: center;
+    }
+
+    .div-upvotes,
+    .div-downvotes {
+        height: 20px;
+        width: 50px;
+        margin-top: 10px;
+        align-items: center;
+        bottom: 0px;
+    }
+
+    h2 {
+        margin: 0px;
+    }
+
+    footer{
+        margin-top: 0px;
+        height: 200px;
+        background-color: rgb(10, 9, 33);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 30px;
+      }
+      
+      .netflix-logo-footer{
+        height: 150px;
+        width: 300px;
+      }
+
+}

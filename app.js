@@ -23,7 +23,13 @@ function displayCollection() {
     for (let i = 0; i < collection.series.length; i++) {
         const serieAtIndexI = collection.series[i];
         //creating new li element with class 'li-serie' and 3 sub divs lcr
+
         const newLi = document.createElement('li');
+        const num = document.createElement('div');
+        num.classList.add('num');
+        const numText = document.createTextNode(i + 1);
+        num.appendChild(numText);
+        newLi.appendChild(num);
         const leftLi = document.createElement('div');
         leftLi.classList.add('left-li');
         const centerLi = document.createElement('div');

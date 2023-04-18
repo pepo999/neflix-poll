@@ -10,4 +10,11 @@ return fetch('https://6436c5228205915d34fc6fd5.mockapi.io/series/' + serie.id, {
 .then(resp => resp.json())
     }
 
+<<<<<<< Updated upstream
 }
+=======
+
+}
+
+// https://6436c5228205915d34fc6fd5.mockapi.io/series
+>>>>>>> Stashed changes

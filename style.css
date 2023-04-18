@@ -109,8 +109,8 @@ img{
 }
 
 button{
-height: 61.8px;
-width: 61.8px;
+height: 50px;
+width: 50px;
 }
 
 .buttons{
@@ -137,7 +137,7 @@ width: 61.8px;
 .div-upvotes, .div-downvotes{
   margin-top: 0px;
   position: relative;
-  bottom: 20px;
+  bottom: 30px;
 }
 
 .material-symbols-outlined {

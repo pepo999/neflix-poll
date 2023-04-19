@@ -10,4 +10,3 @@ class DataService {
             .then(resp => resp.json())
     }
 }
-

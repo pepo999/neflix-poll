@@ -8,9 +8,14 @@ class Serie {
         this.upVotes = upVotes;
         this.downVotes = downVotes;
         this.imageUrl = imageUrl;
+        // this.ranking = ((upVotes * 2) - downVotes);
         if (id !== undefined) {
             this.id = id;
         }
+    }
+
+    get ranking() {
+        return this.upVotes * 2 - this.downVotes;
     }
 
     compareByTitle(serie2) {
@@ -38,13 +43,12 @@ class Serie {
     }
 
     compareByAvg(serie2) {
-        if ((this.upVotes - this.downVotes) > (serie2.upVotes - serie2.downVotes)) {
+        if (((this.upVotes * 2) - this.downVotes) > ((serie2.upVotes * 2) - serie2.downVotes)) {
             return -1
-        } else if ((this.upVotes - this.downVotes) < (serie2.upVotes - serie2.downVotes)) {
+        } else if (((this.upVotes * 2) - this.downVotes) < ((serie2.upVotes * 2) - serie2.downVotes)) {
             return 1
         } else {
             return 0
         }
     }
-
 }

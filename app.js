@@ -36,7 +36,7 @@ function displayCollection() {
         const rightLi = document.createElement('div');
         rightLi.classList.add('right-li');
         newLi.classList.add('li-serie');
-        //creation of img tag and giving it class 'li-image- and url:
+        //creation of img tag and giving it class 'li-image- and url
         const serieImg = document.createElement('img');
         serieImg.classList.add('li-image');
         const imgUrl = serieAtIndexI.imageUrl;

@@ -1,8 +1,8 @@
 @media screen and (max-width: 992px) {
 
-    /* *{
+    *{
         border: solid 1px #fafafa;
-    } */
+    }
 
     html {
         height: fit-content;
@@ -23,7 +23,8 @@
 
     main {
         width: 100%;
-        align-items: flex-start;
+        align-items: baseline;
+        justify-content: center;
     }
 
 
@@ -54,8 +55,8 @@
 
     .center-li {
         font-size: 13px;
-        min-width: 52vw;
-        width: 80vw;
+        min-width: 250px;
+        width: 300px;
     }
 
     span, h2 {
@@ -70,10 +71,8 @@
 
     .buttons {
         width: 100%;
-        /* display: grid;
-            margin-bottom: 0px;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%; */
+     display: flex;
+     justify-content: center;
     }
 
     #order-title-btn,

@@ -20,7 +20,6 @@ function fillCollectionFromServer(data) {
 function displayCollection() {
     const listOfSeries = document.getElementById('serie-list');
     listOfSeries.innerHTML = '';
-
     if (collection.series.length > 10) {
         for (let i = 0; i < 10; i++) {
             const serieAtIndexI = collection.series[i];

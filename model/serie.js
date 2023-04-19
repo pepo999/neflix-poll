@@ -47,17 +47,4 @@ class Serie {
         }
     }
 
-    toDbModel() {  //creo una sorta di costruttore speculare perchè nel mio database veniva creata una nuova proprietà _creationDate
-        const dbModel = {
-            title: this.title,
-            creator: this.creator,
-            seasons: this.seasons,
-            isCompleted: this.isCompleted,
-            upVotes: this.upVotes,
-            downVotes: this.downVotes,
-            id: this.id
-        }
-        return dbModel;
-    }
-
 }

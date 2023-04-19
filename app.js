@@ -17,13 +17,17 @@ function fillCollectionFromServer(data) {
     }
 }
 
+
+
+
 function displayCollection() {
     const listOfSeries = document.getElementById('serie-list');
     listOfSeries.innerHTML = '';
     if (collection.series.length > 10) {
+        
         for (let i = 0; i < 10; i++) {
             const serieAtIndexI = collection.series[i];
-            //creating new li element with class 'li-serie' and number of inde + 3 sub divs lcr
+            //creating new li element with class 'li-serie' and number of index + 3 sub divs lcr
             const newLi = document.createElement('li');
             const num = document.createElement('div');
             num.classList.add('num');

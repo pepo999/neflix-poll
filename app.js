@@ -17,9 +17,6 @@ function fillCollectionFromServer(data) {
     }
 }
 
-
-
-
 function displayCollection() {
     const listOfSeries = document.getElementById('serie-list');
     listOfSeries.innerHTML = '';

@@ -1,16 +1,16 @@
-class Serie{
+class Serie {
 
-    constructor(title, creator, seasons, isCompleted, upVotes, downVotes, imageUrl, id){
-this.title = title;
-this.creator = creator;
-this.seasons = seasons;
-this.isCompleted = isCompleted;
-this.upVotes = upVotes;
-this.downVotes = downVotes;
-this.imageUrl = imageUrl;
-if (id) {
-    this.id = id;
-}
+    constructor(title, creator, seasons, isCompleted, upVotes, downVotes, imageUrl, id) {
+        this.title = title;
+        this.creator = creator;
+        this.seasons = seasons;
+        this.isCompleted = isCompleted;
+        this.upVotes = upVotes;
+        this.downVotes = downVotes;
+        this.imageUrl = imageUrl;
+        if (id) {
+            this.id = id;
+        }
     }
 
     compareByTitle(serie2) {
@@ -47,15 +47,15 @@ if (id) {
         }
     }
 
-    toDbModel () {  //creo una sorta di costruttore speculare perchè nel mio database veniva creata una nuova proprietà _creationDate
+    toDbModel() {  //creo una sorta di costruttore speculare perchè nel mio database veniva creata una nuova proprietà _creationDate
         const dbModel = {
-            title : this.title,
-            creator : this.creator,
-            seasons : this.seasons,
-            isCompleted : this.isCompleted,
-            upVotes : this.upVotes,
-            downVotes : this.downVotes,
-            id : this.id
+            title: this.title,
+            creator: this.creator,
+            seasons: this.seasons,
+            isCompleted: this.isCompleted,
+            upVotes: this.upVotes,
+            downVotes: this.downVotes,
+            id: this.id
         }
         return dbModel;
     }

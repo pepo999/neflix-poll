@@ -1,8 +1,8 @@
 @media screen and (max-width: 992px) {
 
-    *{
+    /* *{
         border: solid 1px #fafafa;
-    }
+    } */
 
     html {
         height: fit-content;

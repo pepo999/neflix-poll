@@ -7,6 +7,8 @@ displayCollection()
 DataService.getSeries().then(data => {
     fillCollectionFromServer(data);
     displayCollection()
+}).catch(error => {//se qualcosa in questo si rompe, faccio una funzione che gestisca questo errore
+    displayErrorMessage('qualcosa è andato storto')
 })
 
 function fillCollectionFromServer(data) {
@@ -48,7 +50,7 @@ function displayCollection() {
         //creation of creator text, seasons text
         const serieCreator = document.createElement('span');
         const serieSeasons = document.createElement('span');
-        const serieCreatorText= document.createTextNode('Creator: ' + serieAtIndexI.creator);
+        const serieCreatorText = document.createTextNode('Creator: ' + serieAtIndexI.creator);
         const serieSeasonsText = document.createTextNode('Seasons: ' + serieAtIndexI.seasons + isCompleted(serieAtIndexI));
         serieCreator.appendChild(serieCreatorText);
         serieSeasons.appendChild(serieSeasonsText);
@@ -58,11 +60,13 @@ function displayCollection() {
         upVoteBtn.innerHTML = 'thumb_up';
         upVoteBtn.addEventListener('click', (event) => {
             upVoteBtn.style.opacity = '1';
-                serieAtIndexI.upVotes += 1;
-                DataService.putSerie(serieAtIndexI).then(upvotedSerie => {
-                    upVoteBtn.style.opacity = '0.5';
-                    displayCollection();
-                })    
+            serieAtIndexI.upVotes += 1;
+            DataService.putSerie(serieAtIndexI).then(upvotedSerie => {
+                upVoteBtn.style.opacity = '0.5';
+                displayCollection();
+            }).catch(error => {
+                displayErrorMessage('non puoi votare ora')
+            })
         });
         const downVoteBtn = document.createElement('button');
         downVoteBtn.classList.add('material-symbols-outlined');
@@ -73,8 +77,10 @@ function displayCollection() {
             DataService.putSerie(serieAtIndexI).then(downvotedSerie => {
                 downVoteBtn.style.opacity = '0.5';
                 displayCollection();
-            })     
-    });
+            }).catch(error => {
+                displayErrorMessage('non puoi votare ora')
+            })
+        });
         //creation of numbers of upvotes and downvotes
         const numUpVotes = document.createTextNode(serieAtIndexI.upVotes);
         const divUpVotes = document.createElement('div');
@@ -127,9 +133,39 @@ function orderByAvg() {
 function isCompleted(serie) {
     let points = ' . . .';
     let noPoints = '';
-    if(serie.isCompleted === false) {
+    if (serie.isCompleted === false) {
         return points;
     } else {
-        return  noPoints;
+        return noPoints;
     }
+}
+
+function saveNewSerie() {
+    const titleInput = document.getElementById('title-input');
+    const creatorInput = document.getElementById('creator-input');
+    const seasonsInput = document.getElementById('seasons-input');
+    const completedInput = document.getElementById('completed-input');
+
+    const newSerieTitle = titleInput.value;
+    const newSerieCreator = creatorInput.value;
+    const newSerieSeasons = seasonsInput.value;
+    const newSerieCompleted = completedInput.value;
+
+    const newSerie = new Serie(newSerieTitle, newSerieCreator, newSerieSeasons, newSerieCompleted);
+
+    console.log(newSerie)
+
+    DataService.postSerie(newSerie).then(savedSerie => {
+        // const finalSerie = new Serie(savedSerie.title, savedSerie.creator, etcetc) è quello che facciamo nella linea sotto più esplicitato
+        newSerie.id = savedSerie.id;
+        collection.addSerie(newSerie); //qua bisognerebbe mettere(finalSerie)
+        displayCollection();
+    }).catch(error =>
+        displayErrorMessage('non puoi aggiungere una nuova serie al momento'))
+}
+
+function displayErrorMessage(message) {
+    const errorMessage = document.getElementById('error-message');
+    const errorNode = document.createTextNode(message);
+    errorMessage.appendChild(errorNode);
 }

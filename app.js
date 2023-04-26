@@ -4,11 +4,14 @@ let collection = new Collection()
 
 displayCollection()
 
+startLoading()
 DataService.getSeries().then(data => {
     fillCollectionFromServer(data);
-    displayCollection()
+    displayCollection();
+    stopLoading()
 }).catch(error => {//se qualcosa in questo si rompe, faccio una funzione che gestisca questo errore
-    displayErrorMessage('qualcosa è andato storto')
+    displayErrorMessage('qualcosa è andato storto ' + error);
+    stopLoading()
 })
 
 function fillCollectionFromServer(data) {
@@ -61,11 +64,14 @@ function displayCollection() {
         upVoteBtn.addEventListener('click', (event) => {
             upVoteBtn.style.opacity = '1';
             serieAtIndexI.upVotes += 1;
+            startLoading();
             DataService.putSerie(serieAtIndexI).then(upvotedSerie => {
                 upVoteBtn.style.opacity = '0.5';
                 displayCollection();
+                stopLoading();
             }).catch(error => {
-                displayErrorMessage('non puoi votare ora') + error
+                displayErrorMessage('non puoi votare ora'+ error);
+                stopLoading();
             })
         });
         const downVoteBtn = document.createElement('button');
@@ -74,11 +80,14 @@ function displayCollection() {
         downVoteBtn.addEventListener('click', (event) => {
             downVoteBtn.style.opacity = '1';
             serieAtIndexI.downVotes += 1;
+            startLoading();
             DataService.putSerie(serieAtIndexI).then(downvotedSerie => {
                 downVoteBtn.style.opacity = '0.5';
                 displayCollection();
+                stopLoading();
             }).catch(error => {
-                displayErrorMessage('non puoi votare ora')
+                displayErrorMessage('non puoi votare ora ');
+                stopLoading();
             })
         });
         //creation of numbers of upvotes and downvotes
@@ -156,17 +165,30 @@ function saveNewSerie() {
 
     console.log(newSerie)
 
+startLoading();
     DataService.postSerie(newSerie).then(savedSerie => {
         // const finalSerie = new Serie(savedSerie.title, savedSerie.creator, etcetc) è quello che facciamo nella linea sotto più esplicitato
         newSerie.id = savedSerie.id;
         collection.addSerie(newSerie); //qua bisognerebbe mettere(finalSerie)
         displayCollection();
+        stopLoading();
     }).catch(error =>
-        displayErrorMessage('non puoi aggiungere una nuova serie al momento'))
+        displayErrorMessage('non puoi aggiungere una nuova serie al momento'));
+        stopLoading();
 }
 
 function displayErrorMessage(message) {
     const errorMessage = document.getElementById('error-message');
     const errorNode = document.createTextNode(message);
     errorMessage.appendChild(errorNode);
+}
+
+function startLoading() {
+const loadingIcon = document.getElementById('loading-icon');
+loadingIcon.style.display = 'inline-block';
+}
+
+function stopLoading() {
+    const loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display = 'none';
 }

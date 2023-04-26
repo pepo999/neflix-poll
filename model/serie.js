@@ -11,19 +11,6 @@ this.imageUrl = imageUrl;
 if (id) {
     this.id = id;
 }}
-    constructor(title, creator, seasons, isCompleted, upVotes, downVotes, imageUrl, id) {
-        this.title = title;
-        this.creator = creator;
-        this.seasons = seasons;
-        this.isCompleted = isCompleted;
-        this.upVotes = upVotes;
-        this.downVotes = downVotes;
-        this.imageUrl = imageUrl;
-        // this.ranking = ((upVotes * 2) - downVotes);
-        if (id !== undefined) {
-            this.id = id;
-        }
-    }
 
     get ranking() {
         return this.upVotes * 2 - this.downVotes;

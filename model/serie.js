@@ -1,4 +1,4 @@
-class Serie{
+class Serie {
 
     constructor(title, creator, seasons = 1, isCompleted = false, upVotes = 0, downVotes = 0, imageUrl, id){
 this.title = title;
@@ -10,7 +10,23 @@ this.downVotes = downVotes;
 this.imageUrl = imageUrl;
 if (id) {
     this.id = id;
-}
+}}
+    constructor(title, creator, seasons, isCompleted, upVotes, downVotes, imageUrl, id) {
+        this.title = title;
+        this.creator = creator;
+        this.seasons = seasons;
+        this.isCompleted = isCompleted;
+        this.upVotes = upVotes;
+        this.downVotes = downVotes;
+        this.imageUrl = imageUrl;
+        // this.ranking = ((upVotes * 2) - downVotes);
+        if (id !== undefined) {
+            this.id = id;
+        }
+    }
+
+    get ranking() {
+        return this.upVotes * 2 - this.downVotes;
     }
 
     compareByTitle(serie2) {
@@ -38,26 +54,12 @@ if (id) {
     }
 
     compareByAvg(serie2) {
-        if ((this.upVotes - this.downVotes) > (serie2.upVotes - serie2.downVotes)) {
+        if (((this.upVotes * 2) - this.downVotes) > ((serie2.upVotes * 2) - serie2.downVotes)) {
             return -1
-        } else if ((this.upVotes - this.downVotes) < (serie2.upVotes - serie2.downVotes)) {
+        } else if (((this.upVotes * 2) - this.downVotes) < ((serie2.upVotes * 2) - serie2.downVotes)) {
             return 1
         } else {
             return 0
         }
     }
-
-    toDbModel () {  //creo una sorta di costruttore speculare perchè nel mio database veniva creata una nuova proprietà _creationDate
-        const dbModel = {
-            title : this.title,
-            creator : this.creator,
-            seasons : this.seasons,
-            isCompleted : this.isCompleted,
-            upVotes : this.upVotes,
-            downVotes : this.downVotes,
-            id : this.id
-        }
-        return dbModel;
-    }
-
 }

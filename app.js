@@ -38,7 +38,7 @@ function displayCollection() {
         const rightLi = document.createElement('div');
         rightLi.classList.add('right-li');
         newLi.classList.add('li-serie');
-        //creation of img tag and giving it class 'li-image- and url:
+        //creation of img tag and giving it class 'li-image- and url
         const serieImg = document.createElement('img');
         serieImg.classList.add('li-image');
         const imgUrl = serieAtIndexI.imageUrl;
@@ -65,7 +65,7 @@ function displayCollection() {
                 upVoteBtn.style.opacity = '0.5';
                 displayCollection();
             }).catch(error => {
-                displayErrorMessage('non puoi votare ora')
+                displayErrorMessage('non puoi votare ora') + error
             })
         });
         const downVoteBtn = document.createElement('button');
@@ -109,6 +109,7 @@ function displayCollection() {
         listOfSeries.appendChild(newLi);
     }
 }
+
 
 function orderByTitle() {
     collection.sortByTitle();

@@ -155,15 +155,15 @@ function saveNewSerie() {
     const creatorInput = document.getElementById('creator-input');
     const seasonsInput = document.getElementById('seasons-input');
     const completedInput = document.getElementById('completed-input');
+    const imageUrlInput = document.getElementById('image-url-input');
 
     const newSerieTitle = titleInput.value;
     const newSerieCreator = creatorInput.value;
     const newSerieSeasons = seasonsInput.value;
     const newSerieCompleted = completedInput.checked;
+    const newSerieImageUrl = imageUrlInput.checked;
 
-    const newSerie = new Serie(newSerieTitle, newSerieCreator, newSerieSeasons, newSerieCompleted);
-
-    console.log(newSerie)
+    const newSerie = new Serie(newSerieTitle, newSerieCreator, newSerieSeasons, newSerieCompleted, 0, 0, newSerieImageUrl);
 
 startLoading();
     DataService.postSerie(newSerie).then(savedSerie => {

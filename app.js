@@ -159,7 +159,7 @@ function saveNewSerie() {
     const newSerieTitle = titleInput.value;
     const newSerieCreator = creatorInput.value;
     const newSerieSeasons = seasonsInput.value;
-    const newSerieCompleted = completedInput.value;
+    const newSerieCompleted = completedInput.checked;
 
     const newSerie = new Serie(newSerieTitle, newSerieCreator, newSerieSeasons, newSerieCompleted);
 
